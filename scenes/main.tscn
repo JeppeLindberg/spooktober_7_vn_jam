@@ -1,0 +1,137 @@
+[gd_scene load_steps=13 format=3 uid="uid://bs78dqgbu7p1i"]
+
+[ext_resource type="Script" uid="uid://fr17yayncyk0" path="res://scripts/library_1.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://vdww1u8eea7o" path="res://scripts/textbox.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://okjnvr1ishy8" path="res://prefabs/smoke_scene.tscn" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://l13u8c0a6thr" path="res://scripts/scenes.gd" id="1_tipki"]
+[ext_resource type="Texture2D" uid="uid://bocuksslsd22y" path="res://sprites/sam_idle.png" id="2_sugp2"]
+[ext_resource type="Shader" uid="uid://c3ieyitj4ts6p" path="res://shaders/layer_1.gdshader" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://ci4en15m64b0" path="res://scripts/layer_information.gd" id="4_o6xl0"]
+[ext_resource type="Shader" uid="uid://qbjemro6awxr" path="res://shaders/canvas_layer.gdshader" id="6_tefeu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tbgi4"]
+viewport_path = NodePath("smoke")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
+resource_local_to_scene = true
+shader = ExtResource("3_jyhfs")
+shader_parameter/tint = Color(0, 0, 0, 0)
+shader_parameter/sprite = ExtResource("2_sugp2")
+shader_parameter/mult = SubResource("ViewportTexture_tbgi4")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tefeu"]
+viewport_path = NodePath("layer_1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
+resource_local_to_scene = true
+shader = ExtResource("6_tefeu")
+shader_parameter/tex = SubResource("ViewportTexture_tefeu")
+
+[node name="main" type="Node2D"]
+
+[node name="smoke" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="smoke_scene" parent="smoke" instance=ExtResource("1_tbgi4")]
+
+[node name="camera_smoke" type="Camera2D" parent="smoke"]
+
+[node name="scenes" type="Node2D" parent="." node_paths=PackedStringArray("layer_1")]
+position = Vector2(0, -1000)
+script = ExtResource("1_tipki")
+layer_1 = NodePath("../layer_1")
+layer_1_bits = 1
+
+[node name="library_1" type="Node2D" parent="scenes" node_paths=PackedStringArray("textbox")]
+script = ExtResource("1_0wfyh")
+textbox = NodePath("../../textbox_layer/textbox_control")
+
+[node name="library_1_1" type="Node2D" parent="scenes/library_1"]
+
+[node name="sam" type="Sprite2D" parent="scenes/library_1/library_1_1"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_tbgi4")
+position = Vector2(-5, 53)
+texture = ExtResource("2_sugp2")
+script = ExtResource("4_o6xl0")
+target_layer = 1
+
+[node name="layer_1" type="SubViewport" parent="."]
+size = Vector2i(1152, 648)
+
+[node name="camera_1" type="Camera2D" parent="layer_1"]
+
+[node name="final_canvas" type="CanvasLayer" parent="."]
+
+[node name="layer_1" type="ColorRect" parent="final_canvas"]
+material = SubResource("ShaderMaterial_o6xl0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="textbox_layer" type="CanvasLayer" parent="."]
+
+[node name="textbox_control" type="Control" parent="textbox_layer" node_paths=PackedStringArray("scenes", "text_panel", "text", "speaker_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+scenes = NodePath("../../scenes")
+text_panel = NodePath("margin_outer/panel")
+text = NodePath("margin_outer/panel/margin_text/text")
+speaker_text = NodePath("margin_outer/panel/speaker_text")
+
+[node name="margin_outer" type="MarginContainer" parent="textbox_layer/textbox_control"]
+custom_minimum_size = Vector2(600, 170)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="panel" type="Panel" parent="textbox_layer/textbox_control/margin_outer"]
+layout_mode = 2
+
+[node name="speaker_text" type="RichTextLabel" parent="textbox_layer/textbox_control/margin_outer/panel"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "ADADADAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="margin_text" type="MarginContainer" parent="textbox_layer/textbox_control/margin_outer/panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="text" type="RichTextLabel" parent="textbox_layer/textbox_control/margin_outer/panel/margin_text"]
+layout_mode = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
