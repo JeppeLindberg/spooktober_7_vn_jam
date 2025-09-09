@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://yw1fwawru41k"]
+
+[ext_resource type="Texture2D" uid="uid://dtutqu8d5hk53" path="res://sprites/static_bg.png" id="1_y86t5"]
+[ext_resource type="Texture2D" uid="uid://dohotqfx0diuc" path="res://kenney_particle-pack/PNG (Transparent)/circle_05_modified.png" id="1_yvk64"]
+
+[sub_resource type="Curve" id="Curve_oujrv"]
+_data = [Vector2(0, 0), 0.0, 5.64218, 0, 0, Vector2(0.375, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_54380"]
+curve = SubResource("Curve_oujrv")
+
+[sub_resource type="Curve" id="Curve_yvk64"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oujrv"]
+curve = SubResource("Curve_yvk64")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oujrv"]
+particle_flag_disable_z = true
+angle_min = 90.0
+angle_max = 90.0
+direction = Vector3(1, 1, 0)
+spread = 0.0
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_oujrv")
+alpha_curve = SubResource("CurveTexture_54380")
+
+[node name="back_scene" type="Node2D"]
+
+[node name="particles" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+
+[node name="particles_smoke_1" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(0, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="particles_smoke_7" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(400, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="particles_smoke_8" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(800, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="particles_smoke_2" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(-400, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="particles_smoke_3" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(-800, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="particles_smoke_4" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(-1200, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="particles_smoke_5" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(-1600, -487)
+amount = 10
+texture = ExtResource("1_yvk64")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_oujrv")
+
+[node name="bg" type="Sprite2D" parent="."]
+scale = Vector2(8, 4.566)
+texture = ExtResource("1_y86t5")

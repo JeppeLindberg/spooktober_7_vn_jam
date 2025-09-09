@@ -29,7 +29,7 @@ func swap_scene(new_scene, new_subscene):
 		layer_1.add_child(subscene_layer_1)
 		subscene_layer_1.position = Vector2.ZERO
 		for child in subscene_layer_1.get_children():
-			if not (child.target_layer & layer_1_bits):
+			if child.has_meta('target_layer') and not (child.target_layer & layer_1_bits):
 				child.queue_free()
 
 

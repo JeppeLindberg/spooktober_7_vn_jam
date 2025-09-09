@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://stya0hoi3ic6"]
+
+[ext_resource type="FontFile" uid="uid://3f10boa4mw3q" path="res://fonts/NotJamOldStyle11.ttf" id="1_8er37"]
+
+[resource]
+default_font = ExtResource("1_8er37")
+default_font_size = 22

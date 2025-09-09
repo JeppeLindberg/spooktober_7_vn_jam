@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c2r0wfbkp7pwl"]
+
+[ext_resource type="Shader" uid="uid://c3ieyitj4ts6p" path="res://shaders/layer_1.gdshader" id="1_bg2fm"]
+[ext_resource type="Texture2D" uid="uid://demwtdmqbre0f" path="res://sprites/library_1_1_sam.png" id="2_nry85"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tbgi4"]
+viewport_path = NodePath("smoke")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_bg2fm")
+shader_parameter/tint = Color(0, 0, 0, 0)
+shader_parameter/sprite = ExtResource("2_nry85")
+shader_parameter/mult = SubResource("ViewportTexture_tbgi4")

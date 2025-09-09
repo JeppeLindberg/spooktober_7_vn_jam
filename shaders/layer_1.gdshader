@@ -26,7 +26,7 @@ vec4 soft_light(vec4 base, vec4 blend){
 
 
 void fragment() {
-	
+
 	vec4 sprite_texture = texture(sprite, UV);
 
 	vec4 mult_texture = texture(mult, SCREEN_UV);
