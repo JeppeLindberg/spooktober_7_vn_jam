@@ -34,5 +34,3 @@ void fragment() {
 	vec4 result = soft_light(sprite_texture, mult_texture);
 	COLOR = vec4(result.rgb, sprite_texture.a);
 }
-
-

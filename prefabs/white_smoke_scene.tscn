@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://0q1kstmmoqia"]
+
+[ext_resource type="Texture2D" uid="uid://g3cb0g7ojv77" path="res://kenney_particle-pack/PNG (Transparent)/smoke_03.png" id="1_4xfdk"]
+[ext_resource type="Texture2D" uid="uid://c5pdq7cakq4le" path="res://sprites/bg.png" id="1_un4jk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qdi2h"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 720.0
+direction = Vector3(0.1, 1, 0)
+spread = 27.651
+initial_velocity_min = 307.69
+initial_velocity_max = 430.77
+scale_min = 8.0
+scale_max = 10.0
+
+[node name="white_smoke_scene" type="Node2D"]
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="particles_smoke_1" type="GPUParticles2D" parent="particles"]
+z_index = 100
+position = Vector2(-45, -1748)
+amount = 20
+texture = ExtResource("1_4xfdk")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_qdi2h")
+
+[node name="bg" type="Sprite2D" parent="."]
+scale = Vector2(8, 4.566)
+texture = ExtResource("1_un4jk")

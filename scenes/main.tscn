@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bs78dqgbu7p1i"]
+[gd_scene load_steps=28 format=3 uid="uid://bs78dqgbu7p1i"]
 
 [ext_resource type="Script" uid="uid://fr17yayncyk0" path="res://scripts/library_1.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://vdww1u8eea7o" path="res://scripts/textbox.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://okjnvr1ishy8" path="res://prefabs/smoke_scene.tscn" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://l13u8c0a6thr" path="res://scripts/scenes.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://bpoy4im2gpgl2" path="res://prefabs/static_scene.tscn" id="1_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://0q1kstmmoqia" path="res://prefabs/white_smoke_scene.tscn" id="2_muem4"]
 [ext_resource type="Shader" uid="uid://c3ieyitj4ts6p" path="res://shaders/layer_1.gdshader" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://yw1fwawru41k" path="res://prefabs/back_scene.tscn" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b88wlrl0ibx8j" path="res://sprites/smoke_bg.png" id="4_choun"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://djxsvhflplhos" path="res://sprites/library_1_1_props.png" id="7_85g3d"]
 [ext_resource type="Material" uid="uid://c2r0wfbkp7pwl" path="res://shaders/sprite.tres" id="7_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c5pdq7cakq4le" path="res://sprites/bg.png" id="7_trceg"]
+[ext_resource type="Texture2D" uid="uid://cwdhcqfnt4uol" path="res://sprites/library_1_1_radio.png" id="12_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://cic3r6jditfhy" path="res://sprites/textbox.png" id="12_jkv2x"]
 [ext_resource type="Theme" uid="uid://stya0hoi3ic6" path="res://fonts/not_jam_old_style_11.tres" id="14_a8y0u"]
 
@@ -39,6 +41,16 @@ shader_parameter/tint = Color(0, 0, 0, 0)
 shader_parameter/sprite = SubResource("CompressedTexture2D_eb6dy")
 shader_parameter/mult = SubResource("ViewportTexture_ya4ey")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_muem4"]
+viewport_path = NodePath("white_smoke")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dp3eg"]
+resource_local_to_scene = true
+shader = ExtResource("3_jyhfs")
+shader_parameter/tint = Color(0, 0, 0, 0)
+shader_parameter/sprite = ExtResource("12_jbj1t")
+shader_parameter/mult = SubResource("ViewportTexture_muem4")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_tefeu"]
 viewport_path = NodePath("layer_1")
 
@@ -58,6 +70,12 @@ size = Vector2i(1152, 648)
 [node name="static_scene" parent="static" instance=ExtResource("1_ya4ey")]
 
 [node name="camera_static" type="Camera2D" parent="static"]
+
+[node name="white_smoke" type="SubViewport" parent="."]
+
+[node name="white_smoke_scene" parent="white_smoke" instance=ExtResource("2_muem4")]
+
+[node name="camera_white_smoke" type="Camera2D" parent="white_smoke"]
 
 [node name="smoke" type="SubViewport" parent="."]
 disable_3d = true
@@ -102,6 +120,11 @@ texture = ExtResource("5_tipki")
 texture_filter = 1
 material = SubResource("ShaderMaterial_trceg")
 texture = ExtResource("7_85g3d")
+
+[node name="radio" type="Sprite2D" parent="scenes/library_1/library_1_1"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_dp3eg")
+texture = ExtResource("12_jbj1t")
 
 [node name="layer_1" type="SubViewport" parent="."]
 size = Vector2i(1152, 648)
