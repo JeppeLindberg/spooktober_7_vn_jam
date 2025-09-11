@@ -35,8 +35,12 @@ func _update(delta):
 	text_panel.visible = is_in_dialog()
 	time_progress += delta * symbols_per_sec
 	if is_in_dialog():
-		speaker_text.text = raw_to_bb(_current_dialog_step()['speaker'])
-		text.text = raw_to_bb(_current_dialog_step()['text'], int(time_progress))
+		speaker_text.set_text_raw(_current_dialog_step()['speaker'])
+		text.set_text_raw(_current_dialog_step()['text'], int(time_progress))
+		
+		if text.all_symbols_visible:
+			ready_for_next_text = true
+
 		scenes.swap_scene(current_scene, _current_dialog_step()['subscene'])
 	
 		if Input.is_action_just_pressed("interact") and (not recursion_block):
@@ -59,27 +63,6 @@ func next_dialog_step():
 		dialog_array = []
 
 	_update(0.0)
-	
-
-func raw_to_bb(raw, symbols = 10000):
-	var output = ''
-	var i = 0
-	while i < len(raw):
-		if raw[i] == ' ':
-			output += ' '
-			i += 1
-			symbols += 1
-
-		if i > symbols:
-			output += '[color=#FFFFFF00]' + raw[i]
-		else:
-			output += '[color=#FFFFFFFF]' + raw[i]
-		i += 1
-
-	if symbols >= len(raw):
-		ready_for_next_text = true
-	
-	return output
 	
 func _current_dialog_step():
 	var defaults = \

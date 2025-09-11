@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="RichTextGhost" load_steps=2 format=3 uid="uid://c5lvitvoh0fxl"]
+
+[ext_resource type="Script" uid="uid://dbkpc1j3qvvp8" path="res://scripts/custom_wave.gd" id="1_21nwq"]
+
+[resource]
+script = ExtResource("1_21nwq")

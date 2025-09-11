@@ -50,7 +50,7 @@ var dialog_array = \
 	},
 	{
 		'speaker': 'Black (radio):',
-		'text': 'Thank you James, and by the way, it is called <i>phenomena</i>.',
+		'text': 'Thank you James, and by the way, it is called <wave>phenomena.<normal>',
 	},
 	{
 		'speaker': 'James (radio):',
