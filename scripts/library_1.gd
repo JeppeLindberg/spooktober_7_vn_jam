@@ -86,7 +86,7 @@ var dialog_array = \
 	},
 	{
 		'text': '',
-		'subscene': 'library_1_2'
+		'subscene': 'library_1_2' #Show moth monster disguised as a human, stumbling through some people
 	},
 	{
 		'speaker': 'Moth?',

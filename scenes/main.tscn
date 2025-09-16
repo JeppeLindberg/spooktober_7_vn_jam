@@ -71,6 +71,7 @@ script = ExtResource("18_gqmmt")
 metadata/_custom_type_script = "uid://dbkpc1j3qvvp8"
 
 [node name="main" type="Node2D"]
+position = Vector2(18, 0)
 script = ExtResource("1_yc10j")
 
 [node name="static" type="SubViewport" parent="."]
