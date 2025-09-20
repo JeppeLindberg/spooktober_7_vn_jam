@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cij6u7e03irwa"]
+
+[ext_resource type="Texture2D" uid="uid://g3cb0g7ojv77" path="res://kenney_particle-pack/PNG (Transparent)/smoke_03.png" id="1_f24d0"]
+[ext_resource type="Texture2D" uid="uid://dmiowt8nm3ps1" path="res://sprites/smoke_moth_bg.png" id="2_f24d0"]
+[ext_resource type="Shader" uid="uid://drd2lhhrio2qd" path="res://shaders/color_rect.gdshader" id="3_dusu2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tefeu"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 720.0
+direction = Vector3(0.1, 1, 0)
+spread = 27.651
+initial_velocity_min = 307.69
+initial_velocity_max = 430.77
+scale_min = 8.0
+scale_max = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
+shader = ExtResource("3_dusu2")
+shader_parameter/top_color = Color(1, 1, 1, 1)
+shader_parameter/bottom_color = Color(1, 1, 1, 1)
+
+[node name="smoke_scene" type="Node2D"]
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="particles_smoke_1" type="GPUParticles2D" parent="particles"]
+self_modulate = Color(0.243974, 0.688227, 1, 1)
+z_index = 100
+position = Vector2(-45, -1748)
+amount = 20
+texture = ExtResource("1_f24d0")
+lifetime = 20.0
+preprocess = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_tefeu")
+
+[node name="bg" type="Sprite2D" parent="."]
+scale = Vector2(8, 4.566)
+texture = ExtResource("2_f24d0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_tefeu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
