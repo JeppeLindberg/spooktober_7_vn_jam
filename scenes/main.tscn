@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpoy4im2gpgl2" path="res://prefabs/static_scene.tscn" id="1_ya4ey"]
 [ext_resource type="Script" uid="uid://bomw8ygns6yxj" path="res://scripts/main.gd" id="1_yc10j"]
 [ext_resource type="PackedScene" uid="uid://0q1kstmmoqia" path="res://prefabs/white_smoke_scene.tscn" id="2_muem4"]
-[ext_resource type="Shader" uid="uid://c3ieyitj4ts6p" path="res://shaders/layer_1.gdshader" id="3_jyhfs"]
+[ext_resource type="Shader" uid="uid://c3ieyitj4ts6p" path="res://shaders/soft_light.gdshader" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://yw1fwawru41k" path="res://prefabs/back_scene.tscn" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b88wlrl0ibx8j" path="res://sprites/smoke_bg.png" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://cij6u7e03irwa" path="res://prefabs/smoke_moth_scene.tscn" id="5_pm3ni"]
@@ -141,7 +141,6 @@ script = ExtResource("18_gqmmt")
 metadata/_custom_type_script = "uid://dbkpc1j3qvvp8"
 
 [node name="main" type="Node2D"]
-position = Vector2(18, 0)
 script = ExtResource("1_yc10j")
 
 [node name="static" type="SubViewport" parent="."]
@@ -157,15 +156,15 @@ size = Vector2i(1152, 648)
 
 [node name="camera_white_smoke" type="Camera2D" parent="white_smoke"]
 
-[node name="smoke" type="SubViewport" parent="."]
+[node name="smoke_sam" type="SubViewport" parent="."]
 disable_3d = true
 transparent_bg = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="smoke_scene" parent="smoke" instance=ExtResource("1_tbgi4")]
+[node name="smoke_scene" parent="smoke_sam" instance=ExtResource("1_tbgi4")]
 
-[node name="camera_smoke" type="Camera2D" parent="smoke"]
+[node name="camera_smoke" type="Camera2D" parent="smoke_sam"]
 
 [node name="smoke_moth" type="SubViewport" parent="."]
 disable_3d = true
