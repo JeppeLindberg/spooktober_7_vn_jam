@@ -31,6 +31,8 @@ func swap_scene(new_scene, new_subscene):
 		for child in subscene_layer_1.get_children():
 			if child.has_meta('target_layer') and not (child.target_layer & layer_1_bits):
 				child.queue_free()
+			if child.get('simulate') != null:
+				child.simulate = true
 
 
 

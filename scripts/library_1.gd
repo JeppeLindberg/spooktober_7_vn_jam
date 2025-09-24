@@ -89,12 +89,20 @@ var dialog_array = \
 		'subscene': 'library_1_2' #Show moth monster disguised as a human, stumbling through some people
 	},
 	{
-		'speaker': 'Moth?',
+		'speaker': '???',
 		'text': 'erm... excuse me...',
 	},
 	{
-		'speaker': 'Moth?',
+		'speaker': '???',
 		'text': 'coming through...',
+	},
+	{
+		'text': '',
+		'subscene': 'library_1_3' #Bystanders move away
+	},
+	{
+		'text': '',
+		'subscene': 'library_1_4' #moth has clear way, moves to other group
 	},
 	{
 		'speaker': 'Black (radio):',
@@ -105,12 +113,16 @@ var dialog_array = \
 		'text': 'Even among people.',
 	},
 	{
-		'speaker': 'Moth?',
+		'speaker': '???',
 		'text': 'ermm... hi',
 	},
 	{
 		'text': '',
-		'subscene': 'library_1_3' #Bystanders scurry away
+		'subscene': 'library_1_5' #Last bystander move away
+	},
+	{
+		'text': '',
+		'subscene': 'library_1_6' #Moth stands alone
 	},
 	{
 		'speaker': 'Black (radio):',
@@ -118,7 +130,7 @@ var dialog_array = \
 	},
 	{
 		'text': '',
-		'subscene': 'library_1_4' #Moth starts looking through some books
+		'subscene': 'library_1_7' #Moth starts looking through some books
 	},
 	{
 		'speaker': 'Black (radio):',
@@ -126,18 +138,18 @@ var dialog_array = \
 	},
 	{
 		'text': '',
-		'subscene': 'library_1_5' #Moth picks out a book, but hit their arm on a shelf, knocking out some books
+		'subscene': 'library_1_8' #Moth picks out a book, but hit their arm on a shelf, knocking out some books
 	},
 	{
-		'speaker': 'Moth?',
+		'speaker': '???',
 		'text': 'oh... ermmm... oops',
 	},
 	{
 		'text': '',
-		'subscene': 'library_1_6' #Moth stumbles and knocks a big row of books off the shelf
+		'subscene': 'library_1_9' #Moth stumbles and knocks a big row of books off the shelf
 	},
 	{
-		'speaker': 'Moth?',
+		'speaker': '???',
 		'text': 'uhhhh... oh no… erm sorry',
 	},
 	{

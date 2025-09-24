@@ -2,6 +2,7 @@ extends Control
 
 @export var scenes: Node2D
 @export var text_panel: Panel
+@export var text_panel_sprite: Node2D
 @export var text: RichTextLabel
 @export var speaker_text: RichTextLabel
 @export var base_symbols_per_sec = 30.0
@@ -32,7 +33,8 @@ func _process(delta: float) -> void:
 	_update(delta)
 
 func _update(delta):
-	text_panel.visible = is_in_dialog()
+	text_panel.visible = is_in_dialog() and (_current_dialog_step()['text'] != '')
+	text_panel_sprite.visible = text_panel.visible
 	time_progress += delta * symbols_per_sec
 	if is_in_dialog():
 		speaker_text.set_text_raw(_current_dialog_step()['speaker'])

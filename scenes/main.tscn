@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bs78dqgbu7p1i"]
+[gd_scene load_steps=55 format=3 uid="uid://bs78dqgbu7p1i"]
 
 [ext_resource type="Script" uid="uid://fr17yayncyk0" path="res://scripts/library_1.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://vdww1u8eea7o" path="res://scripts/textbox.gd" id="1_o5qli"]
@@ -29,6 +29,7 @@
 [ext_resource type="RichTextEffect" uid="uid://c5lvitvoh0fxl" path="res://fonts/custom_wave.tres" id="19_0ld40"]
 [ext_resource type="Texture2D" uid="uid://dinqnl8uqe6xv" path="res://sprites/person_2.png" id="19_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://cn0iwfjbnjtwm" path="res://sprites/person_3.png" id="20_vxglm"]
+[ext_resource type="Script" uid="uid://cqjipqj5pmw3b" path="res://scripts/move.gd" id="22_fv21b"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_eb6dy"]
 viewport_path = NodePath("back")
@@ -248,20 +249,132 @@ texture = ExtResource("15_jscy8")
 [node name="person_1" type="Sprite2D" parent="scenes/library_1/library_1_2"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_vxglm")
-position = Vector2(146, 18)
+position = Vector2(20, 46)
 texture = ExtResource("18_og1vs")
 
 [node name="person_2" type="Sprite2D" parent="scenes/library_1/library_1_2"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_2f3dj")
-position = Vector2(146, 18)
+position = Vector2(-83, 30)
 texture = ExtResource("19_2wyq8")
 
 [node name="person_3" type="Sprite2D" parent="scenes/library_1/library_1_2"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_yq6so")
-position = Vector2(146, 18)
+position = Vector2(-49, 27)
 texture = ExtResource("20_vxglm")
+
+[node name="library_1_3" type="Node2D" parent="scenes/library_1"]
+position = Vector2(3613, 0)
+
+[node name="bg" type="Sprite2D" parent="scenes/library_1/library_1_3"]
+material = SubResource("ShaderMaterial_pm3ni")
+scale = Vector2(8, 4.566)
+texture = ExtResource("4_choun")
+
+[node name="props" type="Sprite2D" parent="scenes/library_1/library_1_3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2wyq8")
+texture = ExtResource("16_y6deb")
+
+[node name="moth" type="Sprite2D" parent="scenes/library_1/library_1_3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_y6deb")
+position = Vector2(-396, 18)
+texture = ExtResource("15_jscy8")
+
+[node name="person_1" type="Sprite2D" parent="scenes/library_1/library_1_3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vxglm")
+position = Vector2(20, 46)
+texture = ExtResource("18_og1vs")
+script = ExtResource("22_fv21b")
+move_vector = Vector2(-240, 0)
+
+[node name="person_2" type="Sprite2D" parent="scenes/library_1/library_1_3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2f3dj")
+position = Vector2(-83, 30)
+texture = ExtResource("19_2wyq8")
+script = ExtResource("22_fv21b")
+move_vector = Vector2(-220, 0)
+
+[node name="person_3" type="Sprite2D" parent="scenes/library_1/library_1_3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yq6so")
+position = Vector2(-49, 27)
+texture = ExtResource("20_vxglm")
+
+[node name="library_1_4" type="Node2D" parent="scenes/library_1"]
+position = Vector2(3613, 0)
+
+[node name="bg" type="Sprite2D" parent="scenes/library_1/library_1_4"]
+material = SubResource("ShaderMaterial_pm3ni")
+scale = Vector2(8, 4.566)
+texture = ExtResource("4_choun")
+
+[node name="props" type="Sprite2D" parent="scenes/library_1/library_1_4"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2wyq8")
+texture = ExtResource("16_y6deb")
+
+[node name="moth" type="Sprite2D" parent="scenes/library_1/library_1_4"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_y6deb")
+position = Vector2(-103, 13)
+texture = ExtResource("15_jscy8")
+
+[node name="person_3" type="Sprite2D" parent="scenes/library_1/library_1_4"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yq6so")
+position = Vector2(-49, 27)
+texture = ExtResource("20_vxglm")
+
+[node name="library_1_5" type="Node2D" parent="scenes/library_1"]
+position = Vector2(5477, 0)
+
+[node name="bg" type="Sprite2D" parent="scenes/library_1/library_1_5"]
+material = SubResource("ShaderMaterial_pm3ni")
+scale = Vector2(8, 4.566)
+texture = ExtResource("4_choun")
+
+[node name="props" type="Sprite2D" parent="scenes/library_1/library_1_5"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2wyq8")
+texture = ExtResource("16_y6deb")
+
+[node name="moth" type="Sprite2D" parent="scenes/library_1/library_1_5"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_y6deb")
+position = Vector2(-103, 13)
+texture = ExtResource("15_jscy8")
+
+[node name="person_3" type="Sprite2D" parent="scenes/library_1/library_1_5"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_yq6so")
+position = Vector2(-49, 27)
+texture = ExtResource("20_vxglm")
+script = ExtResource("22_fv21b")
+move_vector = Vector2(200, 0)
+
+[node name="library_1_6" type="Node2D" parent="scenes/library_1"]
+position = Vector2(7340, 0)
+
+[node name="bg" type="Sprite2D" parent="scenes/library_1/library_1_6"]
+material = SubResource("ShaderMaterial_pm3ni")
+scale = Vector2(8, 4.566)
+texture = ExtResource("4_choun")
+
+[node name="props" type="Sprite2D" parent="scenes/library_1/library_1_6"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2wyq8")
+texture = ExtResource("16_y6deb")
+
+[node name="moth" type="Sprite2D" parent="scenes/library_1/library_1_6"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_y6deb")
+position = Vector2(217, 1)
+texture = ExtResource("15_jscy8")
 
 [node name="layer_1" type="SubViewport" parent="."]
 size = Vector2i(1152, 648)
@@ -286,7 +399,7 @@ grow_vertical = 2
 
 [node name="textbox_layer" type="CanvasLayer" parent="."]
 
-[node name="textbox_control" type="Control" parent="textbox_layer" node_paths=PackedStringArray("scenes", "text_panel", "text", "speaker_text")]
+[node name="textbox_control" type="Control" parent="textbox_layer" node_paths=PackedStringArray("scenes", "text_panel", "text_panel_sprite", "text", "speaker_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -296,6 +409,7 @@ grow_vertical = 2
 script = ExtResource("1_o5qli")
 scenes = NodePath("../../scenes")
 text_panel = NodePath("margin_outer/panel")
+text_panel_sprite = NodePath("../../layer_1/camera_1/textbox")
 text = NodePath("margin_outer/panel/margin_text/text")
 speaker_text = NodePath("margin_outer/panel/speaker_text")
 
